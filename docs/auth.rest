@@ -6,3 +6,18 @@ Content-Type: application/json
     "email": "cosa@gmail.com",
     "password": "xdxdxd"
 }
+
+#######
+POST http://127.0.0.1:3000/auth/login
+Content-Type: application/json
+
+{
+    "name":"Holas",
+    "email": "cosa@gmail.com",
+    "password": "xdxdxd"
+}
+
+
+#######
+GET http://127.0.0.1:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MzAyMTM0MjEsImV4cCI6MTczMDIxMzQyMX0.tUjyJfz7GwICMbn7m2wyePndbbfBRSVySEvZ0_HhM_Q
