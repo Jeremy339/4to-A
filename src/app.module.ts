@@ -3,14 +3,19 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
-import { AuthService } from './modules/auth/auth.service';
-import { AuthController } from './modules/auth/auth.controller';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from './config/config.module';
+import { CategoriaModule } from './modules/categoria/categoria.module';
+import { PersonaModule } from './modules/persona/persona.module';
+import { RoleModule } from './modules/role/role.module';
+import { LibroModule } from './modules/libro/libro.module';
+import { ProductoModule } from './modules/producto/producto.module';
+import { ClienteModule } from './modules/cliente/cliente.module';
+import { PedidoModule } from './modules/pedido/pedido.module';
 
 @Module({
-  imports: [AuthModule, UsersModule, DatabaseModule, ConfigModule],
-  controllers: [AppController, AuthController],
-  providers: [AppService, AuthService],
+  imports: [AuthModule, UsersModule, DatabaseModule, ConfigModule, CategoriaModule, PersonaModule, RoleModule,LibroModule, ProductoModule, ClienteModule, PedidoModule],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
