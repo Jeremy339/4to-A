@@ -8,13 +8,12 @@ import { ConfigModule } from './config/config.module';
 import { CategoriaModule } from './modules/categoria/categoria.module';
 import { PersonaModule } from './modules/persona/persona.module';
 import { RoleModule } from './modules/role/role.module';
-import { LibroModule } from './modules/libro/libro.module';
 import { ProductoModule } from './modules/producto/producto.module';
 import { ClienteModule } from './modules/cliente/cliente.module';
 import { PedidoModule } from './modules/pedido/pedido.module';
 
 @Module({
-  imports: [AuthModule, UsersModule, DatabaseModule, ConfigModule, CategoriaModule, PersonaModule, RoleModule,LibroModule, ProductoModule, ClienteModule, PedidoModule],
+  imports: [AuthModule, UsersModule, DatabaseModule, ConfigModule, CategoriaModule, PersonaModule, RoleModule, ProductoModule, ClienteModule, PedidoModule],
   controllers: [AppController],
   providers: [AppService],
 })
