@@ -1,26 +1,54 @@
 import { Injectable } from '@nestjs/common';
 import { CreateProductoDto } from './dto/create-producto.dto';
 import { UpdateProductoDto } from './dto/update-producto.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Producto } from './entities/producto.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class ProductoService {
+
+  constructor(@InjectRepository(Producto) private productoRepository: Repository<Producto>){}
+  queryBuilder(alias:string){
+    return this.productoRepository.createQueryBuilder(alias);
+  }
+
   create(createProductoDto: CreateProductoDto) {
-    return 'This action adds a new producto';
+    const producto = this.productoRepository.create(createProductoDto);  // Crear la instancia del producto
+    return this.productoRepository.save(producto);  // Guardar el producto en la base de datos
   }
 
   findAll() {
-    return `This action returns all producto`;
+    return this.productoRepository.find();  // Devuelve todos los productos
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} producto`;
+  async findOne(id: number) {
+    const producto = await this.productoRepository.findOne({ where: { id } });
+    if (!producto) {
+      throw new Error('Producto no encontrado');
+    }
+    return producto;
   }
 
-  update(id: number, updateProductoDto: UpdateProductoDto) {
-    return `This action updates a #${id} producto`;
+  async update(id: number, updateProductoDto: UpdateProductoDto) {
+    const producto = await this.productoRepository.findOne({ where: { id } });
+    if (!producto) {
+      throw new Error('Producto no encontrado');
+    }
+  
+    // Actualizar las propiedades del producto
+    Object.assign(producto, updateProductoDto);
+  
+    return this.productoRepository.save(producto);  // Guardar el producto actualizado
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} producto`;
+  async remove(id: number) {
+    const producto = await this.productoRepository.findOne({ where: { id } });
+    if (!producto) {
+      throw new Error('Producto no encontrado');
+    }
+  
+    await this.productoRepository.remove(producto);  // Eliminar el producto
+    return { message: 'Producto eliminado exitosamente' };  // Respuesta después de eliminar
   }
 }

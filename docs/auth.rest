@@ -2,10 +2,22 @@ POST http://127.0.0.1:3000/auth/register
 Content-Type: application/json
 
 {
-    "name":"Holas",
-    "email": "cosa@gmail.com",
-    "password": "xdxdxd"
+    "name":"Holas1",
+    "mail": "cosa2@gmail.com",
+    "password": "xdxdxd",
+    "telefono": "0981668402"
 }
+
+
+################
+POST http://127.0.0.1:3000/categoria
+Content-Type: application/json
+
+{
+    "nombreCategoria":"Holas1",
+    "detalle": "cosa2@gmail.com"
+}
+
 
 #######
 POST http://127.0.0.1:3000/auth/login
@@ -13,11 +25,11 @@ Content-Type: application/json
 
 {
     "name":"Holas",
-    "email": "cosa@gmail.com",
+    "email": "cosa2@gmail.com",
     "password": "xdxdxd"
 }
 
 
 #######
 GET http://127.0.0.1:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MzAyMTM0MjEsImV4cCI6MTczMDIxMzQyMX0.tUjyJfz7GwICMbn7m2wyePndbbfBRSVySEvZ0_HhM_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNvc2EyQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MzM2ODY1OTYsImV4cCI6MTczMzY4NzIwMX0.PjD0_5xhxv_4f9bhA80SyrcKi2dFBmYIBuUUT5OZcco
