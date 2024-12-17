@@ -1,0 +1,37 @@
+POST http://127.0.0.1:3000/auth/register
+Content-Type: application/json
+
+{
+    "name":"Insti",
+    "email": "pattyfp30@hotmail.com",
+    "password": "1234567",
+    "telefono": "0981668402"
+}
+
+
+################
+POST http://127.0.0.1:3000/categoria
+Content-Type: application/json
+
+{
+    "nombreCategoria":"Echo",
+    "detalle": "Ninguno"
+}
+
+################
+GET  http://127.0.0.1:3000/categoria
+
+
+#######
+POST http://127.0.0.1:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "prueba@gmail.com",
+    "password": "123456"
+}
+
+
+#######
+GET http://127.0.0.1:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsZXhwYWNobzgyQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MzQzNzg0OTksImV4cCI6MTczNDM3OTEwNH0.M42HveWxXrf2vPgvu_pF45roJgjjU9snSp87J7Byr1s
